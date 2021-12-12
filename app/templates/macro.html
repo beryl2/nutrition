@@ -1,0 +1,13 @@
+{% macro displayFoodList (food_list)%}
+
+{% for movie in movie_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 egg-card">
+    <p>{{egg.food_name}}</p>
+        <a href='/egg/{{egg.id}}'>
+            
+        view egg details</a>
+    
+</div>
+<li>{{food.title}}</li>
+{% endfor %}
+{% endmacro %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterpath" style="background: url({{news.poster}})no-repeat center center">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
+            <h3>{{egg.food_name}}</h3>
+                <p class="overview">{{egg.serving_unit}}</p>
+                <p class="ratings"><b>{{egg.serving_qty}</b>-<i>{{egg.serving_qty}}qty</i></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

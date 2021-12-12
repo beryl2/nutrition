@@ -1,0 +1,33 @@
+{% import displayEggList(food_list) %}
+{% import 'macros.html' as macro %}
+
+{% extends base.html %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <form>
+        <input type="text" name="egg_query" placeholder="Search for an egg" class="form-control">
+        <input type="submit"  value="Submit" class="btn btn-default">
+    </form>
+
+</div>
+
+
+        <h3>organic eggs </h3>
+        <ul>
+           {{macro.displayEggList(organic)}}
+         </ul>
+
+         <h3>vegeterian eggs </h3>
+         <ul>
+            {{macro.dosplayEggList(vegeterian)}}
+          </ul>
+
+          <h3>processed eggs </h3>
+         <ul>
+           {{macro.displayEggList(processed)}}
+          </ul>
+{% endblock %}
