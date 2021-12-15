@@ -2,25 +2,25 @@ from app import app
 from urllib import request,json
 import urllib.request,json
 from .models import egg
+def post():
+    url = 'https://trackapi.nutritionix.com/v2/natural/nutrients'
 
-url = 'https://trackapi.nutritionix.com/v2/natural/nutrients'
-
-userquery = {
-  "query":"egg"
-}
-
-req = request.Request(url, method ='POST')
-req.add_header('Content-Type', 'application/json')
-req.add_header('x-app-id','db6249ef')
-req.add_header('x-app-key','5f05ca24b7db75fd0d05102571367378')
-data = json.dumps(userquery)
-data = data.encode()
+    userquery = {
+     "query":"egg"
+    }
+    req = request.Request(url, method ='POST')
+    req.add_header('Content-Type', 'application/json')
+    req.add_header('x-app-id','db6249ef')
+    req.add_header('x-app-key','5f05ca24b7db75fd0d05102571367378')
+    data = json.dumps(userquery)
+    data = data.encode()
 
 with request.urlopen(req, data = data) as url:
     
     
     
-    data.json = (url.read())
+    unsorteddata = (url.read())
+    print (unsorteddata)
 
 
 def process_results(eggs_list):  

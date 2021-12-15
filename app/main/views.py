@@ -1,8 +1,8 @@
 from flask import render_template,request,redirect,url_for
-from app  import app
-from .request import post_eggs,post_egg,search_egg
+from . import main
+from ..request import post_eggs,post_egg,search_egg
 
-@app.route('/')
+@main.route('/')
 def index():
     organic_eggs = post_eggs('organic')
     vegeterian_eggs = post_eggs('vegeterian')
@@ -18,14 +18,14 @@ def index():
 
         return render_template('index.html',message = message, title = title, organic = organic_eggs, vegeterian = vegeterian_eggs, processed = processed_eggs)
 
-@app.route('/egg/<int:id>')
+@main.route('/egg/<int:id>')
 def egg(id):
     egg = post_egg(id)
     food_name = f'{egg.food_name}'
 
     return render_template("egg.html", food_name=food_name, egg=egg)
 
-@app.route('/search/<egg_name>')
+@main.route('/search/<egg_name>')
 def search(egg_name):
     egg_name_list = egg_name.split(" ")
     egg_name_format = "+".join(egg_name_list)
