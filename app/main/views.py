@@ -19,11 +19,12 @@ def index():
         return render_template('index.html',message = message, title = title, organic = organic_eggs, vegeterian = vegeterian_eggs, processed = processed_eggs)
 
 @main.route('/egg/<int:id>')
-def egg(id):
-    egg = post_egg(id)
-    food_name = f'{egg.food_name}'
+def components(id):
+    components = post_egg(id)
+    
 
-    return render_template("egg.html", food_name=food_name, egg=egg)
+    return render_template("components.html", components = components)
+
 
 @main.route('/search/<egg_name>')
 def search(egg_name):
